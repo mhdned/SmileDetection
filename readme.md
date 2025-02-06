@@ -21,7 +21,7 @@ Smile Detection is a FastAPI-based web application that allows users to upload i
 1. Clone the repository:
    ```sh
    git clone https://github.com/mhdned/SmileDetection.git
-   cd howru
+   cd SmileDetection
    ```
 2. Create a virtual environment:
    ```sh
