@@ -76,5 +76,5 @@ Smile Detection is a FastAPI-based web application that allows users to upload i
 This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Author
-Developed by [Mehtiuo](https://github.com/mhdned).
+Developed by [Mehtiuo](https://github.com/mhdned) & ROOT313.
 
