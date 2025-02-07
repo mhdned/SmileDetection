@@ -103,6 +103,14 @@ def load_pic(item):
 ├── README.md          # Project documentation
 ```
 
+## Technologies Used
+
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,fastapi" />
+  </a>
+</p>
+
 ## License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
