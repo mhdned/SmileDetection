@@ -8,6 +8,8 @@ from fastapi import FastAPI, File, HTTPException, Request, UploadFile, status
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
+from core import ai
+
 # Import cores
 ### also import the AI models here ASSHOLE ###
 from core.jinja import jinja
@@ -44,7 +46,7 @@ def generate_random_string(length: int = 10) -> str:
 )
 async def api_check(request: Request):
     # Define veriables for output context
-    message = "HowRU is alive..."
+    message = "FACE"
 
     # Context preparation
     context = {"message": message}
@@ -85,13 +87,10 @@ async def upload_picture(request: Request, file: UploadFile = File(...)):
 
     # run AI methods, functions, actions whatever bullshit you want to call them
 
-    ### ...
-    ### ...
-    ### ...
-    ### ...
+    result = ai.load_pic(uploaded_file_path)
 
     ### put the result message into message variable
-    message = "This NIGGA smiles because he sees your weird face"
+    message = result
 
     context = {"message": message, "file_name": file_name}
 
