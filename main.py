@@ -9,19 +9,13 @@ from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 from core import ai
-
-# Import cores
-### also import the AI models here ASSHOLE ###
 from core.jinja import jinja
 
-# Create instance from FastAPI
-app = FastAPI(title="HowRU")
+app = FastAPI(title="SmileDetection")
 
-# Include mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-# Utils functions
 def file_iterator(file_path: str, chunk_size: int = 1024):
     with open(file_path, mode="rb") as file:
         while chunk := file.read(chunk_size):
@@ -34,7 +28,6 @@ def generate_random_string(length: int = 10) -> str:
     return random_string
 
 
-# Main route for check application works
 @app.get(
     path="/",
     status_code=status.HTTP_200_OK,
@@ -45,13 +38,8 @@ def generate_random_string(length: int = 10) -> str:
     response_class=HTMLResponse,
 )
 async def api_check(request: Request):
-    # Define veriables for output context
     message = "FACE"
-
-    # Context preparation
     context = {"message": message}
-
-    # Response
     return jinja.response(request=request, name="form.html", context=context)
 
 
@@ -61,11 +49,9 @@ async def api_check(request: Request):
     status_code=status.HTTP_200_OK,
     summary="Main job of whole application",
     tags=["PROCESS", "API"],
-    # response_class=HTMLResponse,
     name="process",
 )
 async def upload_picture(request: Request, file: UploadFile = File(...)):
-    # definition upload path
     main_path = os.path.dirname(os.path.abspath(__file__))
     upload_path = f"{main_path}/uploads"
 
@@ -81,15 +67,11 @@ async def upload_picture(request: Request, file: UploadFile = File(...)):
 
     uploaded_file_path = f"{upload_path}/{file_name}"
 
-    # store files in upload folder
     with open(uploaded_file_path, "wb") as file_temp:
         file_temp.write(await file.read())
 
-    # run AI methods, functions, actions whatever bullshit you want to call them
-
     result = ai.load_pic(uploaded_file_path)
 
-    ### put the result message into message variable
     message = result
 
     context = {"message": message, "file_name": file_name}
