@@ -1,3 +1,6 @@
 fastapi[all]
 uvicorn[standard]
 Jinja2
+numpy
+joblib
+cv2
