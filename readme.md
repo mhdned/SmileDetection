@@ -117,4 +117,4 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Author
 
-Developed by [Mehtiuo](https://github.com/mhdned) & Root313.
+Developed by [Mehtiuo](https://github.com/mhdned) & [Sudotome](https://github.com/sudotome).
